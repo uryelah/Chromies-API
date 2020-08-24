@@ -1,12 +1,18 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
-const user = new Schema({
-  name: { type: String, trim: true, required: 'Name cannot be blank' },
+const user = new Schema(
+  {
+    name: {
+      type: String,
+      trim: true,
+      required: "Name cannot be blank",
+      unique: true,
+    },
+  },
+  { collection: "users" }
+);
 
-
-}, { collection: 'users' });
-
-const User = mongoose.model('user', user);
+const User = mongoose.model("user", user);
 
 module.exports = User;
