@@ -1,0 +1,28 @@
+{
+  "name": "chromies-api",
+  "version": "1.0.0",
+  "description": "The back-end for a chrome extension that allows for multimedia note taking(screenshots, text, and video-recording) of the current web-page or video allowing the saving of notes as a modal on the web-page, which can then be used for future reference.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/backend/server.js",
+    "nodemon": "nodemon ./src/backend/server.js",
+    "server": "webpack-dev-server --content-base dist",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uryelah/Chromies-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uryelah/Chromies-API/issues"
+  },
+  "homepage": "https://github.com/uryelah/Chromies-API#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
