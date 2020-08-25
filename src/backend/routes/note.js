@@ -48,12 +48,11 @@ router.route("/users/:userID").get(async (req, res) => {
 
 // Create a plain text note
 router.post("/upload/text", upload.none(), (req, res) => {
-  const { pageLink, body, userID, videoTimeStamp } = req.body;
+  const { pageLink, body, userID } = req.body;
   const newNote = new Note({
     pageLink,
     body,
     userID,
-    videoTimeStamp,
   });
 
   newNote
