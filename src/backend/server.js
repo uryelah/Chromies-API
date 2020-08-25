@@ -14,7 +14,10 @@ app.use(cors());
 
 app.use(express.json());
 
-const uri = process.env.ATLAS_URI;
+const uri =
+  process.NODE_ENV !== "production"
+    ? process.env.ATLAS_URI
+    : process.env.ATLAS_URI_PROD;
 mongoose.connect(uri, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
