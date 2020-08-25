@@ -30,7 +30,7 @@ Once the GET request has successfully gone through, an array of all users curren
 Once the POST request has successfully gone through, the newly created user will be returned
 
 Query string parameters accepted:  
-{
+{  
   "**name**" required*  
   Specify the name of the User
   ```
@@ -50,7 +50,7 @@ Example query using a JSON body request: ```{ "name": "aaron" }```
 Once the POST request has successfully gone through, the user object with the queried name if returned
 
 Query string parameters accepted:  
-{
+{  
   "**name**" required*  
   Specify the name of the User
   ```
