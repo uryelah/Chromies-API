@@ -16,8 +16,8 @@ The back-end for a chrome extension that allows for multimedia note taking(scree
 - **:date** field is automatically populated with the date and time this note was created
 
 ## Routes
-### User Routes
-## GET /users
+## User Routes
+### GET /users
 
 Once the GET request has successfully gone through, an array of all users currently in the database will be returned
 
@@ -25,7 +25,7 @@ Once the GET request has successfully gone through, an array of all users curren
 
 **200**: ```[{"notes":[{}],"_id":"","name":"","date":""}]```
 
-## POST /users/register
+### POST /users/register
 
 Once the POST request has successfully gone through, the newly created user will be returned
 
@@ -45,7 +45,7 @@ Example query using a JSON body request: ```{ "name": "aaron" }```
 **200**: ```{ "notes":[{}], "_id":"128329fuvfn", "name":"aaron", "date":"2020-08-25T03:25:41.582Z" }```  
 **400**: ```"Username already taken"```
 
-## POST /users/login
+### POST /users/login
 
 Once the POST request has successfully gone through, the user object with the queried name if returned
 
@@ -65,8 +65,8 @@ Example query using a JSON body request: ```{ "name": "aaron" }```
 **200**: ```{ "notes":[{}], "_id":"128329fuvfn", "name":"aaron", "date":"2020-08-25T03:25:41.582Z" }```  
 **400**: ```"Error: User doesn't exist!"```
 
-### Note Routes
-## GET /notes
+## Note Routes
+### GET /notes
 
 Once the GET request has successfully gone through, an array of all notes queried by the pageLink field value is returned
 
@@ -88,7 +88,7 @@ Example query using a JSON body request: ```{ "pageLink": "https://yabadabbadoo.
   
 **400**: ```"Error: related error message"```
 
-## GET /notes/users/:userID
+### GET /notes/users/:userID
 
 Once the GET request has successfully gone through, an array of all notes with the given **pageLink**_(optional)_ and **userID** is returned and the user's name
 
@@ -114,7 +114,7 @@ Example query using a JSON body request: ```{ "pageLink": "https://yabadabbadoo.
 </pre>  
 **400**: ```"Error: related error message"```
 
-## POST /notes/upload/text
+### POST /notes/upload/text
 
 Used to upload a basic text only note.
 Once the POST request has successfully gone through, returns a message and the newly created note Object
@@ -126,7 +126,7 @@ Example query using a JSON body request: ```{ "pageLink": "https://yabadabbadoo.
 **200**: `{ message: "new Note created", note: {new Note object} }`
 **400**: ```"Error: related error message"```
 
-## POST /notes/upload/media
+### POST /notes/upload/media
 
 Used to upload a multimedia styled note, video or image.
 Once the POST request has successfully gone through, returns a message and the newly created note Object
