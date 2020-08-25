@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/user.model');
 
+// Grab all users an their associated notes
 router.route('/').get((req, res) => {
   User.find().populate('notes')
     .then(data => res.json(data))
@@ -15,6 +16,7 @@ router.route('/login').post((req, res) => {
     .catch(err => res.status(400).json('Error: ', err));
 });
 
+// Register new User
 router.route('/register').post((req, res) => {
   const { name } = req.body;
 
