@@ -62,7 +62,7 @@ router.post("/upload/text", upload.none(), (req, res) => {
       user.notes.push(newNote);
       return user.save();
     })
-    .then(() => res.json("new Note created"))
+    .then(() => res.json({ message: "new Note created", note: newNote }))
     .catch((err) => res.status(400).json(`Error: , ${err}`));
 });
 
@@ -96,13 +96,13 @@ router.post("/upload/media", upload.single("file"), (req, res) => {
 
           newNote
             .save()
-            .then(() => User.findById(userID))
+            .then((data) => User.findById(userID))
             .then((user) => {
               user.notes.push(newNote);
               return user.save();
             })
             .then((data) => {
-              res.json({ message: "new Note created", note: data });
+              res.json({ message: "new Note created", note: newNote });
               console.log("** file uploaded to Cloudinary service");
             })
             .catch((err) => res.status(400).json(`Error: , ${err}`));
@@ -119,7 +119,7 @@ router.post("/upload/media", upload.single("file"), (req, res) => {
       file.path,
       {
         resource_type: "video",
-        public_id: `chromies/${file.originalname}`,
+        public_id: `chromies/${file.filename}`,
         chunk_size: 6000000,
         eager_async: true,
       },
@@ -134,13 +134,13 @@ router.post("/upload/media", upload.single("file"), (req, res) => {
 
           newNote
             .save()
-            .then(() => User.findById(userID))
+            .then((data) => User.findById(userID))
             .then((user) => {
               user.notes.push(newNote);
               return user.save();
             })
-            .then((data) => {
-              res.json({ message: "new Note created", note: data });
+            .then(() => {
+              res.json({ message: "new Note created", note: newNote });
               console.log("** file uploaded to Cloudinary service");
             })
             .catch((err) => res.status(400).json(`Error: , ${err}`));
