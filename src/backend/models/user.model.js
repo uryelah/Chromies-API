@@ -4,7 +4,6 @@ const { Schema } = mongoose;
 const user = new Schema(
   {
     name: {
-      _id: Schema.Types.ObjectId,
       type: String,
       trim: true,
       required: "Name cannot be blank",

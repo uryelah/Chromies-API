@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const note = new Schema(
   {
-    _id: Schema.Types.ObjectId,
     pageLink: {
       type: String,
       trim: true,

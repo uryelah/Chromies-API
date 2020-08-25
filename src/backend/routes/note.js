@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const User = require('../models/user.model');
 const Note = require('../models/note.model');
 
 // Grab all notes by pageLink
@@ -27,6 +28,11 @@ router.route('/').post((req, res) => {
   );
 
   newNote.save()
+    .then(() => User.findById(userID))
+    .then(user => {
+      user.notes.push(newNote);
+      return user.save();
+    })
     .then(() => res.json('new Note created'))
     .catch(err => res.status(400).json(`Error: , ${err}`));
 });
