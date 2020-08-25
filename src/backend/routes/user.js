@@ -29,7 +29,7 @@ router.route("/register").post(async (req, res, next) => {
 
   try {
     if (userExists) {
-      throw new Error("Username already taken.");
+      throw new Error("Username already taken!");
     }
     await newUser.save();
     res.json(newUser);
