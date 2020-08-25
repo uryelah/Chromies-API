@@ -21,6 +21,7 @@ const note = new Schema(
     },
     videoTimeStamp: {
       type: String,
+      default: "",
     },
 
     userID: { type: Schema.Types.ObjectId, ref: "User" },
