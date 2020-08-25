@@ -3,6 +3,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const session = require('express-session');
 require('dotenv').config();
 
 
@@ -28,6 +29,8 @@ const notes = require('./routes/note');
 app.use('/users', users);
 app.use('/notes', notes);
 
+// Allows use of sessions
+app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: true }))
 app.listen(port, () => {
   console.log('Server is running on port: ', port);
 });
