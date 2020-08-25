@@ -131,7 +131,7 @@ Example query using a JSON body request: ```{ "pageLink": "https://yabadabbadoo.
 Used to upload a multimedia styled note, video or image.
 Once the POST request has successfully gone through, returns a message and the newly created note Object
 
-Example query using a JSON body request: ```{ "pageLink": "https://yabadabbadoo.com", "body": "Just a test note", "userID": "128329fuvfn", "videoTimeStamp": "" }```
+Example query using a JSON body request: ```{ "file": {}, "pageLink": "https://yabadabbadoo.com", "body": "Just a test note", "userID": "128329fuvfn", "videoTimeStamp": "" }```
 
 **JSON data returned**:
 
