@@ -19,6 +19,7 @@ const note = new Schema(
       type: String,
       trim: true,
     },
+    date: { type: Date, default: Date.now },
   },
   { collection: "notes" }
 );
