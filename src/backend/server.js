@@ -21,6 +21,13 @@ connection.once('open', () => {
   console.log('MongoDB Database connection established successfully');
 });
 
+const users = require('./routes/users');
+const notes = require('./routes/notes');
+
+// Allows access to /users and /notes routes
+app.use('/users', users);
+app.use('/notes', notes);
+
 app.listen(port, () => {
   console.log('Server is running on port: ', port);
 });

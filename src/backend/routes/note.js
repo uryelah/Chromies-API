@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Note = require('../models/note.model');
 
 // Grab all notes by pageLink
-router.route('/notes').get((req, res) => {
+router.route('/').get((req, res) => {
   const { pageLink } = req.body;
   Note.find({ pageLink })
     .then(data => res.json(data))
@@ -10,7 +10,7 @@ router.route('/notes').get((req, res) => {
 });
 
 // Grab all notes by pageLink and user_id
-router.route('/users/:userID/notes').get((req, res) => {
+router.route('/users/:userID').get((req, res) => {
   const pageLink = req.query.pageLink;
   const userID =  req.params.userID;
   Note.find({ pageLink, userID })
@@ -19,7 +19,7 @@ router.route('/users/:userID/notes').get((req, res) => {
 });
 
 // Create a new note
-router.route('/notes').post((req, res) => {
+router.route('/').post((req, res) => {
   const { pageLink, body, videoLink, imgLink, user_id } = req.body;
 
   const newNote = new Note(
