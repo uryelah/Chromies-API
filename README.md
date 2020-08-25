@@ -114,6 +114,17 @@ Example query using a JSON body request: ```{ "pageLink": "https://yabadabbadoo.
 </pre>  
 **400**: ```"Error: related error message"```
 
+## POST /notes/upload/text
+
+Once the POST request has successfully gone through, returns a message and the newly created note Object
+
+Example query using a JSON body request: ```{ "pageLink": "https://yabadabbadoo.com", "body": "Just a test note", "userID": "128329fuvfn" }```
+
+**JSON data returned**:
+
+**200**: `{ message: "new Note created", note: {new Note object} }`
+**400**: ```"Error: related error message"```
+
 ## Built With
 
 - Node Package Manager
