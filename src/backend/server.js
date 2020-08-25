@@ -1,33 +1,34 @@
 /* eslint-disable no-console */
 /* eslint-disable import/no-unresolved */
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-require('dotenv').config();
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
 
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors());
+
 app.use(express.json());
 
-
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect(uri, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+});
 
 const { connection } = mongoose;
-connection.once('open', () => {
-  console.log('MongoDB Database connection established successfully');
+connection.once("open", () => {
+  console.log("MongoDB Database connection established successfully");
 });
-
-const users = require('./routes/user');
-const notes = require('./routes/note');
-
-// Allows access to /users and /notes routes
-app.use('/users', users);
-app.use('/notes', notes);
 
 app.listen(port, () => {
-  console.log('Server is running on port: ', port);
+  console.log("Server is running on port: ", port);
 });
+
+module.exports = app;
