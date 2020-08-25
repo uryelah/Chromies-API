@@ -20,10 +20,10 @@ router.route('/users/:userID').get((req, res) => {
 
 // Create a new note
 router.route('/').post((req, res) => {
-  const { pageLink, body, videoLink, imgLink, user_id } = req.body;
+  const { pageLink, body, videoLink, imgLink, userID } = req.body;
 
   const newNote = new Note(
-    { pageLink, body, videoLink, imgLink, user_id },
+    { pageLink, body, videoLink, imgLink, userID },
   );
 
   newNote.save()

@@ -14,10 +14,12 @@ const note = new Schema(
     videoLink: {
       type: String,
       trim: true,
+      default: "",
     },
     imgLink: {
       type: String,
       trim: true,
+      default: "",
     },
     date: { type: Date, default: Date.now },
   },
