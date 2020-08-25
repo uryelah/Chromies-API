@@ -21,6 +21,7 @@ const note = new Schema(
       trim: true,
       default: "",
     },
+    userID: { type: Schema.Types.ObjectId, ref: 'User' },
     date: { type: Date, default: Date.now },
   },
   { collection: "notes" }
