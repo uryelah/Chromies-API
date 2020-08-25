@@ -88,6 +88,31 @@ Example query using a JSON body request: ```{ "pageLink": "https://yabadabbadoo.
   
 **400**: ```"Error: related error message"```
 
+## GET /notes/users/:userID
+
+Once the GET request has successfully gone through, an array of all notes with the given **pageLink**_(optional)_ and **userID** is returned and the user's name
+
+Example query using a JSON body request: ```{ "pageLink": "https://yabadabbadoo.com" }```
+
+**JSON data returned**:
+
+**200**: <pre>
+{
+&nbsp;"user": { "name": "aaron" },
+&nbsp;notes: [
+    &nbsp;&nbsp;{
+         &nbsp;&nbsp; &nbsp;"videoLink": "",
+         &nbsp;&nbsp; &nbsp;"imgLink": "",
+         &nbsp;&nbsp; &nbsp;"_id": "12873921789vdf",
+         &nbsp;&nbsp; &nbsp;"pageLink": "https://yabadabbadoo.com",
+         &nbsp;&nbsp; &nbsp;"body": "Just a test note",
+         &nbsp;&nbsp; &nbsp;"userID": "128329fuvfn",
+         &nbsp;&nbsp; &nbsp;"date": "2020-08-25T03:25:41.582Z",
+     &nbsp;&nbsp;}
+&nbsp;]
+}
+</pre>  
+**400**: ```"Error: related error message"```
 
 ## Built With
 
