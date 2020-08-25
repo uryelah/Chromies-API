@@ -116,9 +116,22 @@ Example query using a JSON body request: ```{ "pageLink": "https://yabadabbadoo.
 
 ## POST /notes/upload/text
 
+Used to upload a basic text only note.
 Once the POST request has successfully gone through, returns a message and the newly created note Object
 
 Example query using a JSON body request: ```{ "pageLink": "https://yabadabbadoo.com", "body": "Just a test note", "userID": "128329fuvfn" }```
+
+**JSON data returned**:
+
+**200**: `{ message: "new Note created", note: {new Note object} }`
+**400**: ```"Error: related error message"```
+
+## POST /notes/upload/media
+
+Used to upload a multimedia styled note, video or image.
+Once the POST request has successfully gone through, returns a message and the newly created note Object
+
+Example query using a JSON body request: ```{ "pageLink": "https://yabadabbadoo.com", "body": "Just a test note", "userID": "128329fuvfn", "videoTimeStamp": "" }```
 
 **JSON data returned**:
 
