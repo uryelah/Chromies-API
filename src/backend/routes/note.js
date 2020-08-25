@@ -10,7 +10,7 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json(`Error: , ${err}`));
 });
 
-// Grab all notes by pageLink and user_id
+// Grab all notes by pageLink(optional) and user_id
 router.route('/users/:userID').get((req, res) => {
   const pageLink = req.body.pageLink;
   const userID =  req.params.userID;
