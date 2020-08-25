@@ -13,7 +13,10 @@ router.route("/").get((req, res) => {
 router.route("/login").post((req, res) => {
   const { name } = req.body;
   User.findOne({ name })
-    .then((data) => res.json(data))
+    .then((data) => {
+      if (data) res.json(data);
+      else { res.status(400).json("User doesn't exist!") }
+    })
     .catch((err) => res.status(400).json(`Error: , ${err}`));
 });
 
