@@ -21,8 +21,8 @@ connection.once('open', () => {
   console.log('MongoDB Database connection established successfully');
 });
 
-const users = require('./routes/users');
-const notes = require('./routes/notes');
+const users = require('./routes/user');
+const notes = require('./routes/note');
 
 // Allows access to /users and /notes routes
 app.use('/users', users);
