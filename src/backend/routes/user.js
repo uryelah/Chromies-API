@@ -15,9 +15,9 @@ router.route("/login").post((req, res) => {
   User.findOne({ name })
     .then((data) => {
       if (data) res.json(data);
-      else { res.status(400).json("User doesn't exist!") }
+      else { throw new Error("User doesn't exist!"); }
     })
-    .catch((err) => res.status(400).json(`Error: , ${err}`));
+    .catch((err) => res.status(400).json(`${err}`));
 });
 
 // Register new User
@@ -29,12 +29,12 @@ router.route("/register").post(async (req, res, next) => {
 
   try {
     if (userExists) {
-      throw new Error("Username taken.");
+      throw new Error("Username already taken.");
     }
     await newUser.save();
     res.json(newUser);
   } catch (error) {
-    res.status(400).json(`Error: ${error}`);
+    res.status(400).json(`${error}`);
   }
 });
 
