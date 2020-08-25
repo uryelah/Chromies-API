@@ -12,11 +12,17 @@ router.route('/').get((req, res) => {
 
 // Grab all notes by pageLink and user_id
 router.route('/users/:userID').get((req, res) => {
-  const pageLink = req.query.pageLink;
+  const pageLink = req.body.pageLink;
   const userID =  req.params.userID;
-  Note.find({ pageLink, userID })
-    .then(data => res.json(data))
-    .catch(err => res.status(400).json(`Error: , ${err}`));
+  if (pageLink) {
+    Note.find({ pageLink, userID })
+      .then(data => res.json(data))
+      .catch(err => res.status(400).json(`Error: , ${err}`));
+  } else {
+    Note.find({ userID })
+      .then(data => res.json(data))
+      .catch(err => res.status(400).json(`Error: , ${err}`));
+  }
 });
 
 // Create a new note
