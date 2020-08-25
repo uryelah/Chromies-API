@@ -48,11 +48,12 @@ router.route("/users/:userID").get(async (req, res) => {
 
 // Create a plain text note
 router.post("/upload/text", upload.none(), (req, res) => {
-  const { pageLink, body, userID } = req.body;
+  const { pageLink, body, userID, videoTimeStamp } = req.body;
   const newNote = new Note({
     pageLink,
     body,
     userID,
+    videoTimeStamp,
   });
 
   newNote
@@ -72,7 +73,7 @@ router.post("/upload/media", upload.single("file"), (req, res) => {
   const file = req.file;
 
   // get other items in request body
-  const { pageLink, body, userID } = req.body;
+  const { pageLink, body, userID, videoTimeStamp } = req.body;
 
   // check if file is an img or video
 
@@ -92,6 +93,7 @@ router.post("/upload/media", upload.single("file"), (req, res) => {
             body,
             userID,
             imgLink: result.secure_url,
+            videoTimeStamp,
           });
 
           newNote
@@ -130,6 +132,7 @@ router.post("/upload/media", upload.single("file"), (req, res) => {
             body,
             userID,
             videoLink: result.secure_url,
+            videoTimeStamp,
           });
 
           newNote
