@@ -9,10 +9,12 @@ const user = new Schema(
       required: "Name cannot be blank",
       unique: true,
     },
+    notes: [{ type: Schema.Types.ObjectId, ref: 'Note' }],
+    date: { type: Date, default: Date.now },
   },
   { collection: "users" }
 );
 
-const User = mongoose.model("user", user);
+const User = mongoose.model("User", user);
 
 module.exports = User;
