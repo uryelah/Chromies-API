@@ -74,17 +74,18 @@ Example query using a JSON body request: ```{ "pageLink": "https://yabadabbadoo.
 
 **JSON data returned**:
 
-**200**: ```[
-    {
-        "videoLink": "",
-        "imgLink": "",
-        "_id": "5f4484b5dc20d34f50875bd2",
-        "pageLink": "https://yabadabbadoo.com",
-        "body": "Just a test note",
-        "userID": "5f44791f0f13301f4480c4f9",
-        "date": "2020-08-25T03:25:41.582Z",
-    }
-]```  
+**200**: <pre>[
+    &nbsp;{
+         &nbsp; &nbsp;"videoLink": "",
+         &nbsp; &nbsp;"imgLink": "",
+         &nbsp; &nbsp;"_id": "12873921789vdf",
+         &nbsp; &nbsp;"pageLink": "https://yabadabbadoo.com",
+         &nbsp; &nbsp;"body": "Just a test note",
+         &nbsp; &nbsp;"userID": "128329fuvfn",
+         &nbsp; &nbsp;"date": "2020-08-25T03:25:41.582Z",
+     &nbsp;}
+]</pre>
+  
 **400**: ```"Error: related error message"```
 
 
