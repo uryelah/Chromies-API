@@ -12,11 +12,7 @@ router.route('/').get((req, res) => {
 router.route('/login').post((req, res) => {
   const { name } = req.body;
   User.findOne({ name })
-    .then(data => {
-      req.session.user = res.json(data);
-      req.session.save();
-      return res.json(data);
-    })
+    .then(data => res.json(data))
     .catch(err => res.status(400).json(`Error: , ${err}`));
 });
 

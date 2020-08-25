@@ -27,8 +27,7 @@ router.route('/users/:userID').get((req, res) => {
 
 // Create a new note
 router.route('/').post((req, res) => {
-  const { pageLink, body, videoLink, imgLink } = req.body;
-  const userID = req.session.user._id;
+  const { pageLink, body, videoLink, imgLink, userID } = req.body;
 
   const newNote = new Note(
     { pageLink, body, videoLink, imgLink, userID },
