@@ -2,7 +2,6 @@ const router = require("express").Router();
 const User = require("../models/user.model");
 const Note = require("../models/note.model");
 const multer = require("multer");
-const tmpDir = require("os").tmpdir;
 const upload = multer({ dest: "/tmp" });
 const cloudinary = require("cloudinary").v2;
 process.env.NODE_ENV !== "production" ? require("dotenv").config() : null;
