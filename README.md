@@ -2,6 +2,8 @@
 
 The back-end for a chrome extension that allows for multimedia note taking(screenshots, text, and video-recording) of the current web-page or video allowing the saving of notes as a modal on the web-page, which can then be used for future reference.
 
+![screenshot](Notaroo%20ERD.jpeg)
+
 ## Models
 ### - User
 - Has one (2) unique fields: **:name, :notes**
@@ -39,7 +41,6 @@ Query string parameters accepted:
 }
 
 Example query using a JSON body request: ```{ "name": "aaron" }```
-
 **JSON data returned**:
 
 **200**: ```{ "notes":[{}], "_id":"128329fuvfn", "name":"aaron", "date":"2020-08-25T03:25:41.582Z" }```  
