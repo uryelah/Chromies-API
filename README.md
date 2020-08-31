@@ -6,8 +6,8 @@ The back-end for a chrome extension that allows for multimedia note taking(scree
 
 ## Models
 ### - User
-- Has one (2) unique fields: **:name, :notes**
-- Has one (1) non-unique field: **:date** (automatically populated with the date and time created)
+- Has two (2) unique fields: **:name, :notes**
+- Has two (2) non-unique field: **:date, :password_digest** (automatically populated with the date and time created)
 - Has string validations required for **:name** must have a value, must be unique
 - **:notes** field is an Array of all note objects created by this user
 
