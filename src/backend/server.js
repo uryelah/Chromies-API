@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 const uri =
-  process.NODE_ENV !== "production"
+  process.env.NODE_ENV !== "production"
     ? process.env.ATLAS_URI
     : process.env.ATLAS_URI_PROD;
 mongoose.connect(uri, {
